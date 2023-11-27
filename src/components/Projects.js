@@ -7,6 +7,10 @@ import starr from "../assets/img/starp.png";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
 import rea from "../assets/img/starRea.png"
+import prepa from "../assets/img/ipeim.jpg";
+import poly from "../assets/img/poly.jpg";
+import alfa from "../assets/img/alfa.jpg"
+import run from "../assets/img/run.png"
 
 export const Projects = () => {
 
@@ -29,7 +33,47 @@ export const Projects = () => {
       imgUrl: rea,
       githubLink: "https://github.com/AsmaArrak/REACT",
     },
+
   ];
+
+
+  const educationInfo = [
+
+    {
+      title: "Ecole Polytechnique de Sousse ",
+      description: 'Pre Engineering Degree',
+      imgUrl: poly,
+      githubLink: "https://www.polytecsousse.tn",
+
+    },
+    {
+      title: "Monastir Preparatory Engineering Institute ",
+      description: 'Engineering Degree',
+      imgUrl: prepa,
+      githubLink: "https://ipeim.rnu.tn",
+    }
+
+  ];
+
+
+  const Stage = [
+
+    {
+      title: "Internship At Run-It ",
+      description: '',
+      imgUrl: run,
+      githubLink: "https://www.run-it.tn",
+
+    },
+    {
+      title: "Internship At Alfa Computers ",
+      description: '',
+      imgUrl: alfa,
+      githubLink: "https://alfacomputers.tn",
+    }
+
+  ];
+
 
   return (
     <section className="project" id="projects">
@@ -38,46 +82,78 @@ export const Projects = () => {
           <Col size={12}>
             <TrackVisibility>
               {({ isVisible }) =>
-              <div className={isVisible ? "animate__animated animate__fadeIn": ""}>
-                <h2>Projects</h2>
-                <p>Here are some projects I have worked on. I will hopefully add more soon.<br/>Find them in my Github.</p>
-                
-                <Tab.Container id="projects-tabs" defaultActiveKey="first">
-                  <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
-                    <Nav.Item>
-                      <Nav.Link eventKey="first">Tab 1</Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item>
-                      <Nav.Link eventKey="second">Tab 2</Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item>
-                      <Nav.Link eventKey="third">Tab 3</Nav.Link>
-                    </Nav.Item>
-                  </Nav>
-                  <Tab.Content id="slideInUp" className={isVisible ? "animate__animated animate__slideInUp" : ""}>
-                    <Tab.Pane eventKey="first">
-                      <Row>
-                        {
-                          projects.map((project, index) => {
-                            return (
-                              <ProjectCard
-                                key={index}
-                                {...project}
-                              />
-                            )
-                          })
-                        }
-                      </Row>
-                    </Tab.Pane>
-                    <Tab.Pane eventKey="section">
-                      <p></p>
-                    </Tab.Pane>
-                    <Tab.Pane eventKey="third">
-                      <p></p>
-                    </Tab.Pane>
-                  </Tab.Content>
-                </Tab.Container>
-              </div>}
+                <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
+                  <h2>Experience</h2>
+                  <p>Here are some projects I have worked on, my Studies,<br />and my internships.</p>
+
+                  <Tab.Container id="projects-tabs" defaultActiveKey="first">
+                    <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
+                      <Nav.Item>
+                        <Nav.Link eventKey="first">Projects</Nav.Link>
+                      </Nav.Item>
+                      <Nav.Item>
+                        <Nav.Link eventKey="second">Studies</Nav.Link>
+                      </Nav.Item>
+                      <Nav.Item>
+                        <Nav.Link eventKey="third">Experience</Nav.Link>
+                      </Nav.Item>
+
+                    </Nav>
+                    <Tab.Content id="slideInUp" className={isVisible ? "animate__animated animate__slideInUp" : ""}>
+                      <Tab.Pane eventKey="first">
+                        <Row>
+                          {
+                            projects.map((project, index) => {
+                              return (
+                                <ProjectCard
+                                  key={index}
+                                  {...project}
+                                />
+                              )
+                            })
+                          }
+                        </Row>
+                      </Tab.Pane>
+
+
+                      <Tab.Pane eventKey="second">
+                        <Row>
+                          {
+                            educationInfo.map((education, index) => {
+                              return (
+                                <ProjectCard
+                                  key={index}
+                                  {...education}
+                                />
+                              )
+                            })
+                          }
+                        </Row>
+                      </Tab.Pane>
+
+
+
+                      <Tab.Pane eventKey="third">
+                          <Row>
+
+                          {
+                            Stage.map((stage, index) => {
+                              return (
+                                <ProjectCard
+                                  key={index}
+                                  {...stage}
+                                />
+                              )
+                            })
+                          }
+                          </Row>
+                      
+
+
+                      </Tab.Pane>
+                    </Tab.Content>
+                  </Tab.Container>
+                </div>}
             </TrackVisibility>
           </Col>
         </Row>
