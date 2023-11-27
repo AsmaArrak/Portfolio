@@ -58,9 +58,9 @@ export const NavBar = () => {
                 
                 
               </div>
-              <HashLink to='#connect'>
-                <button className="vvd"><span>Let’s Connect</span></button>
-              </HashLink>
+              <a href="https://drive.google.com/file/d/1ygPIgnc2fz1gnLeOAGWAKZXikZj0f4VD/view">
+                <button className="vvd"><span>Get my CV</span></button>
+              </a>
             </span>
           </Navbar.Collapse>
         </Container>

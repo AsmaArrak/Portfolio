@@ -15,18 +15,20 @@ export const Projects = () => {
       title: "HTML/CSS project",
       description: "Design & Development",
       imgUrl: starr,
+      githubLink: "https://github.com/AsmaArrak/STARPRINT",
     },
     {
       title: "Tutor App",
       description: "Mobile Development",
       imgUrl: tutor,
+      githubLink: "https://drive.google.com/file/d/10w0xTDDMFvftjahZ3ip2UWBjtVNJgXXy/view",
     },
     {
       title: "Reactjs project",
       description: "Design & Development",
       imgUrl: rea,
+      githubLink: "https://github.com/AsmaArrak/REACT",
     },
-    
   ];
 
   return (
@@ -39,9 +41,7 @@ export const Projects = () => {
               <div className={isVisible ? "animate__animated animate__fadeIn": ""}>
                 <h2>Projects</h2>
                 <p>Here are some projects I have worked on. I will hopefully add more soon.<br/>Find them in my Github.</p>
-                <a href="https://github.com/AsmaArrak" target="_blank">
-                <button > Here!</button>
-                </a>
+                
                 <Tab.Container id="projects-tabs" defaultActiveKey="first">
                   <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
                     <Nav.Item>
@@ -63,7 +63,7 @@ export const Projects = () => {
                               <ProjectCard
                                 key={index}
                                 {...project}
-                                />
+                              />
                             )
                           })
                         }
@@ -82,7 +82,7 @@ export const Projects = () => {
           </Col>
         </Row>
       </Container>
-      <img className="background-image-right" src={colorSharp2}></img>
+      <img className="background-image-right" src={colorSharp2} alt="Background Image"></img>
     </section>
   )
 }
