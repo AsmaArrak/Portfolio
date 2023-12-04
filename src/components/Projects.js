@@ -11,7 +11,8 @@ import prepa from "../assets/img/ipeim.jpg";
 import poly from "../assets/img/poly.jpg";
 import alfa from "../assets/img/alfa.jpg"
 import run from "../assets/img/run.png"
-
+import spring from "../assets/img/spring.png"
+import weather from "../assets/img/weather.png"
 export const Projects = () => {
 
   const projects = [
@@ -28,10 +29,22 @@ export const Projects = () => {
       githubLink: "https://drive.google.com/file/d/10w0xTDDMFvftjahZ3ip2UWBjtVNJgXXy/view",
     },
     {
+      title: " microservice",
+      description: "user and weather microservices",
+      imgUrl: weather,
+      githubLink: "https://github.com/AsmaArrak/Microservices-",
+    },
+    {
       title: "Reactjs project",
       description: "Design & Development",
       imgUrl: rea,
       githubLink: "https://github.com/AsmaArrak/REACT",
+    },
+    {
+      title: "Spring Boot",
+      description: "Product management",
+      imgUrl: spring,
+      githubLink: "https://github.com/AsmaArrak/SpringBoot",
     },
 
   ];
