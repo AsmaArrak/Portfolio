@@ -13,6 +13,9 @@ import alfa from "../assets/img/alfa.jpg"
 import run from "../assets/img/run.png"
 import spring from "../assets/img/spring.png"
 import weather from "../assets/img/weather.png"
+import ui from "../assets/img/1.png"
+import ss1 from "../assets/img/ss1.png"
+import tet from "../assets/img/pic.gif"
 export const Projects = () => {
 
   const projects = [
@@ -22,6 +25,25 @@ export const Projects = () => {
       imgUrl: starr,
       githubLink: "https://github.com/AsmaArrak/STARPRINT",
     },
+    {
+      title: "Une UI/UX Cauchemardesque",
+      description: "A web site made for 'Nuit de l info'",
+      imgUrl: ui,
+      githubLink: "https://github.com/AsmaArrak/UI-UXCauchemardesque",
+    },
+    {
+      title: "NLP/machine learning App",
+      description: "A web site made for 'Nuit de l info'",
+      imgUrl: ss1,
+      githubLink: "https://github.com/meryembarkallah21/Nuitdelinfo2023",
+    },
+    {
+      title: "404 Tetris Challenge",
+      description: "A web site made for 'Nuit de l info'",
+      imgUrl: tet,
+      githubLink: "https://github.com/AsmaArrak/tetris404",
+    },
+
     {
       title: "Tutor App",
       description: "Mobile Development",
