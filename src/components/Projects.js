@@ -16,6 +16,9 @@ import weather from "../assets/img/weather.png"
 import ui from "../assets/img/1.png"
 import ss1 from "../assets/img/ss1.png"
 import tet from "../assets/img/pic.gif"
+
+
+
 export const Projects = () => {
 
   const projects = [
