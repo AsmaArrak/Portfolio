@@ -1,0 +1,1135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b0b14" />
+  <title>Asma Arrak — Portfolio</title>
+  <meta name="description" content="Asma Arrak — CS graduate student & developer. Projects in ML/NLP, web/mobile, and research on AI in social contexts." />
+
+  <meta property="og:title" content="Asma Arrak — Portfolio" />
+  <meta property="og:description" content="Projects • Research • Experience • Contact" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/assets/og.png" />
+
+  <style>
+    :root{
+      --bg0:#070711;
+      --bg1:#0b0b14;
+      --card:#0f1020cc;
+      --card2:#0f1020f2;
+      --stroke:rgba(255,255,255,.12);
+      --stroke2:rgba(255,255,255,.18);
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.72);
+      --muted2:rgba(255,255,255,.58);
+      --shadow: 0 18px 60px rgba(0,0,0,.55);
+      --shadow2: 0 12px 30px rgba(0,0,0,.35);
+      --r:22px;
+
+      --a:#a855f7;
+      --b:#22d3ee;
+      --c:#fb7185;
+      --d:#fbbf24;
+      --glow: 0 0 0.9rem rgba(168,85,247,.25), 0 0 1.6rem rgba(34,211,238,.15);
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background: radial-gradient(1200px 700px at 10% 0%, rgba(168,85,247,.22), transparent 55%),
+                  radial-gradient(900px 650px at 95% 15%, rgba(34,211,238,.18), transparent 50%),
+                  radial-gradient(900px 700px at 80% 90%, rgba(251,113,133,.14), transparent 55%),
+                  linear-gradient(180deg, var(--bg0), var(--bg1));
+      overflow-x:hidden;
+    }
+
+    #stars{
+      position:fixed; inset:0;
+      width:100%; height:100%;
+      z-index:-2;
+    }
+    .blob{
+      position:fixed;
+      width:520px; height:520px;
+      filter: blur(55px);
+      opacity:.22;
+      z-index:-1;
+      pointer-events:none;
+    }
+    .blob.one{
+      left:-180px; top:-160px;
+      background: radial-gradient(circle at 30% 30%, rgba(168,85,247,.9), transparent 60%);
+    }
+    .blob.two{
+      right:-240px; top:80px;
+      background: radial-gradient(circle at 40% 35%, rgba(34,211,238,.85), transparent 60%);
+    }
+    .blob.three{
+      right:10%; bottom:-260px;
+      background: radial-gradient(circle at 35% 35%, rgba(251,113,133,.85), transparent 60%);
+    }
+
+    .wrap{ width:min(1100px, 92vw); margin:0 auto; }
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(180deg, rgba(7,7,17,.75), rgba(7,7,17,.35));
+      border-bottom: 1px solid rgba(255,255,255,.07);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 14px 0;
+      gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:800;
+      letter-spacing:.2px;
+      user-select:none;
+    }
+    .brand .dot{
+      width:12px; height:12px; border-radius:50%;
+      background: linear-gradient(135deg, var(--a), var(--b));
+      box-shadow: var(--glow);
+    }
+    .links{
+      display:flex; align-items:center; gap:18px;
+      flex-wrap:wrap;
+    }
+    .links a{
+      color:var(--muted);
+      text-decoration:none;
+      font-weight:600;
+      font-size:14px;
+      padding:8px 10px;
+      border-radius:999px;
+      transition: transform .15s ease, background .15s ease, color .15s ease;
+    }
+    .links a:hover{
+      color:var(--text);
+      background: rgba(255,255,255,.06);
+      transform: translateY(-1px);
+    }
+    .actions{
+      display:flex; align-items:center; gap:10px;
+    }
+    .btn{
+      border:1px solid var(--stroke2);
+      background: rgba(15,16,32,.55);
+      color:var(--text);
+      text-decoration:none;
+      padding: 10px 14px;
+      border-radius: 14px;
+      font-weight:800;
+      font-size:14px;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      box-shadow: var(--shadow2);
+      transition: transform .15s ease, border-color .15s ease, background .15s ease;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      border-color: rgba(255,255,255,.28);
+      background: rgba(15,16,32,.72);
+    }
+    .btn.primary{
+      border-color: transparent;
+      background: linear-gradient(135deg, rgba(168,85,247,.9), rgba(34,211,238,.75));
+      color: #071018;
+      text-shadow: 0 1px 0 rgba(255,255,255,.35);
+    }
+    .btn.primary:hover{ transform: translateY(-1px) scale(1.01); }
+
+    section{ padding: 64px 0; }
+    .card{
+      background: radial-gradient(800px 350px at 20% 0%, rgba(168,85,247,.12), transparent 55%),
+                  radial-gradient(700px 350px at 100% 30%, rgba(34,211,238,.11), transparent 50%),
+                  rgba(15,16,32,.55);
+      border:1px solid rgba(255,255,255,.10);
+      border-radius: var(--r);
+      box-shadow: var(--shadow);
+    }
+
+    .hero{
+      padding: 38px 0 24px;
+    }
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 18px;
+      align-items:stretch;
+    }
+    .heroLeft{
+      padding: 26px;
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:8px 12px;
+      border-radius: 999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: var(--muted);
+      font-weight:700;
+      font-size:13px;
+      letter-spacing:.2px;
+    }
+    .badge .spark{
+      width:10px; height:10px; border-radius:50%;
+      background: linear-gradient(135deg, var(--c), var(--d));
+      box-shadow: 0 0 18px rgba(251,113,133,.35);
+    }
+    h1{
+      margin: 14px 0 10px;
+      font-size: clamp(34px, 5vw, 54px);
+      line-height:1.04;
+      letter-spacing:-0.8px;
+    }
+    .sub{
+      margin:0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.6;
+      max-width: 60ch;
+    }
+    .ctaRow{
+      margin-top: 18px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+    }
+    .mini{
+      margin-top:14px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      color:var(--muted2);
+      font-weight:650;
+      font-size:13px;
+    }
+    .pill{
+      padding: 8px 10px;
+      border-radius: 999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.18);
+    }
+
+    .heroRight{
+      padding: 16px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+      overflow:hidden;
+      border-radius: var(--r);
+    }
+    .float{
+      position:absolute;
+      inset:auto;
+      width: 160px; height: 160px;
+      border-radius: 24px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.10);
+      box-shadow: var(--shadow2);
+      transform: rotate(9deg);
+      backdrop-filter: blur(6px);
+    }
+    .float.one{ left:-30px; bottom:20px; }
+    .float.two{ right:-34px; top:24px; transform: rotate(-10deg); }
+
+    .mascot{
+      width: min(420px, 92%);
+      max-height: 320px;
+      filter: drop-shadow(0 18px 40px rgba(0,0,0,.5));
+      transform: translateY(4px);
+    }
+
+    .secHead{
+      text-align:center;
+      margin-bottom: 18px;
+    }
+    .secHead h2{
+      margin:0;
+      font-size: 34px;
+      letter-spacing:-0.4px;
+    }
+    .secHead p{
+      margin:10px auto 0;
+      color: var(--muted);
+      max-width: 70ch;
+      line-height:1.6;
+    }
+
+    .grid3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .grid2{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    .tile{
+      padding: 16px;
+      border-radius: 18px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.18);
+      box-shadow: var(--shadow2);
+    }
+    .tile h3{
+      margin: 0 0 8px;
+      font-size: 16px;
+      letter-spacing:-0.2px;
+    }
+    .tile p{ margin:0; color: var(--muted); line-height:1.6; font-size: 14px; }
+
+    .tags{
+      margin-top: 12px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    .tag{
+      font-size: 12px;
+      font-weight:750;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.06);
+      color: rgba(255,255,255,.82);
+    }
+    .tag.p{ border-color: rgba(168,85,247,.35); }
+    .tag.c{ border-color: rgba(34,211,238,.35); }
+    .tag.r{ border-color: rgba(251,113,133,.35); }
+
+    /* ===== About (custom layout) ===== */
+    .aboutCard{
+      padding: 22px;
+      border-radius: var(--r);
+      border:1px solid rgba(255,255,255,.10);
+      background: radial-gradient(800px 260px at 0% 0%, rgba(168,85,247,.10), transparent 60%),
+                  radial-gradient(800px 260px at 100% 0%, rgba(34,211,238,.09), transparent 55%),
+                  rgba(0,0,0,.18);
+      box-shadow: var(--shadow2);
+    }
+    .aboutGrid{
+      display:grid;
+      grid-template-columns: 1.35fr .65fr;
+      gap: 14px;
+      align-items:stretch;
+    }
+    .aboutMain{
+      padding: 18px;
+      border-radius: 18px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      box-shadow: 0 10px 26px rgba(0,0,0,.28);
+    }
+    .aboutMain h3{
+      margin:0 0 10px;
+      font-size: 16px;
+      letter-spacing:-0.2px;
+    }
+    .aboutMain p{
+      margin: 0 0 12px;
+      color: var(--muted);
+      line-height:1.75;
+      font-size: 14px;
+      max-width: 80ch;
+    }
+    .aboutQuote{
+      margin-top: 14px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.18);
+      color: rgba(255,255,255,.78);
+      line-height:1.65;
+      font-size: 13px;
+      position:relative;
+      overflow:hidden;
+    }
+    .aboutQuote::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background: radial-gradient(450px 200px at 0% 0%, rgba(251,113,133,.10), transparent 60%),
+                  radial-gradient(450px 200px at 100% 0%, rgba(168,85,247,.10), transparent 55%);
+      pointer-events:none;
+      opacity:.9;
+    }
+    .aboutQuote > *{ position:relative; }
+    .aboutAside{
+      padding: 18px;
+      border-radius: 18px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.18);
+      box-shadow: 0 10px 26px rgba(0,0,0,.25);
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .aboutAside h4{
+      margin:0;
+      font-size: 13px;
+      letter-spacing:.2px;
+      color: rgba(255,255,255,.86);
+      font-weight:900;
+      text-transform: uppercase;
+    }
+    .aboutList{
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height:1.75;
+      font-size: 13.5px;
+    }
+    .aboutChips{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top: 6px;
+    }
+    .chip{
+      font-size: 12px;
+      font-weight:800;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      color: rgba(255,255,255,.82);
+      white-space:nowrap;
+    }
+    .chip.a{ border-color: rgba(168,85,247,.30); }
+    .chip.b{ border-color: rgba(34,211,238,.30); }
+    .chip.c{ border-color: rgba(251,113,133,.30); }
+
+    .project{
+      padding: 16px;
+      border-radius: 18px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.18);
+      box-shadow: var(--shadow2);
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      overflow:hidden;
+      position:relative;
+      min-height: 180px;
+    }
+    .project::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background: radial-gradient(500px 220px at 0% 0%, rgba(168,85,247,.14), transparent 60%),
+                  radial-gradient(520px 220px at 100% 0%, rgba(34,211,238,.12), transparent 55%),
+                  radial-gradient(520px 240px at 40% 120%, rgba(251,113,133,.10), transparent 60%);
+      pointer-events:none;
+    }
+    .project > *{ position:relative; }
+    .projectTop{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:10px;
+    }
+    .project h3{
+      margin:0;
+      font-size: 16px;
+      letter-spacing:-0.2px;
+    }
+    .project p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.55;
+      font-size: 14px;
+    }
+    .projLinks{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-top:auto;
+    }
+    .linkBtn{
+      text-decoration:none;
+      color: var(--text);
+      font-weight:800;
+      font-size: 13px;
+      padding: 8px 10px;
+      border-radius: 12px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      display:inline-flex; align-items:center; gap:8px;
+    }
+    .linkBtn:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.10);
+      border-color: rgba(255,255,255,.20);
+    }
+    .linkBtn.disabled{
+      opacity:.45;
+      cursor:not-allowed;
+      pointer-events:none;
+      filter: grayscale(0.4);
+    }
+
+    .timeline{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .event{
+      padding: 16px;
+      border-radius: 18px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.18);
+      box-shadow: var(--shadow2);
+    }
+    .event .top{
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:baseline;
+    }
+    .event .role{
+      font-weight:900;
+      letter-spacing:-0.2px;
+    }
+    .event .when{
+      color: var(--muted2);
+      font-weight:750;
+      font-size: 12px;
+    }
+    .event .where{
+      color: var(--muted);
+      margin-top: 6px;
+      font-weight:700;
+      font-size: 13px;
+    }
+    .event ul{
+      margin: 10px 0 0 18px;
+      color: var(--muted);
+      line-height:1.55;
+      font-size: 14px;
+    }
+
+    footer{
+      padding: 26px 0 46px;
+      color: rgba(255,255,255,.55);
+      text-align:center;
+      border-top: 1px solid rgba(255,255,255,.07);
+      background: rgba(0,0,0,.12);
+    }
+
+    @media (max-width: 920px){
+      .heroGrid{ grid-template-columns: 1fr; }
+      .heroRight{ min-height: 300px; }
+      .grid3{ grid-template-columns: 1fr; }
+      .grid2{ grid-template-columns: 1fr; }
+      .aboutGrid{ grid-template-columns: 1fr; }
+    }
+    @media (max-width: 520px){
+      .links{ display:none; }
+      .btn{ padding: 10px 12px; }
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="stars" aria-hidden="true"></canvas>
+  <div class="blob one" aria-hidden="true"></div>
+  <div class="blob two" aria-hidden="true"></div>
+  <div class="blob three" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="wrap nav">
+      <div class="brand">
+        <span class="dot" aria-hidden="true"></span>
+        <span>Asma Arrak</span>
+      </div>
+
+      <nav class="links" aria-label="Primary">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#research">Research</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="actions">
+        <a class="btn" href="https://github.com/AsmaArrak" target="_blank" rel="noreferrer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 2C6.477 2 2 6.612 2 12.3c0 4.556 2.865 8.42 6.839 9.783.5.097.682-.222.682-.494 0-.244-.009-.89-.014-1.747-2.782.622-3.369-1.379-3.369-1.379-.455-1.19-1.11-1.507-1.11-1.507-.908-.64.069-.627.069-.627 1.004.073 1.533 1.06 1.533 1.06.892 1.571 2.341 1.118 2.91.855.09-.666.349-1.118.635-1.375-2.22-.262-4.556-1.144-4.556-5.092 0-1.126.39-2.046 1.029-2.767-.103-.262-.446-1.316.098-2.743 0 0 .84-.277 2.75 1.057A9.29 9.29 0 0 1 12 7.347c.85.004 1.705.118 2.504.347 1.909-1.334 2.747-1.057 2.747-1.057.546 1.427.203 2.481.1 2.743.64.721 1.027 1.641 1.027 2.767 0 3.958-2.34 4.827-4.566 5.084.359.318.679.944.679 1.903 0 1.374-.012 2.48-.012 2.818 0 .275.18.595.688.494C19.138 20.717 22 16.85 22 12.3 22 6.612 17.523 2 12 2Z" fill="currentColor" opacity=".92"/>
+          </svg>
+          GitHub
+        </a>
+
+        <a class="btn" href="https://linkedin.com/in/asma-arrak-b24a57336/" target="_blank" rel="noreferrer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M6.94 6.5A2.44 2.44 0 1 1 2.06 6.5a2.44 2.44 0 0 1 4.88 0ZM2.5 21h4.88V9H2.5v12ZM9.5 9H14v1.64h.06c.63-1.2 2.17-2.46 4.47-2.46C22 8.18 22 10.54 22 13.61V21h-4.88v-6.1c0-1.46-.03-3.33-2.03-3.33-2.03 0-2.34 1.59-2.34 3.23V21H9.5V9Z" fill="currentColor" opacity=".92"/>
+          </svg>
+          LinkedIn
+        </a>
+
+        <a class="btn primary" href="https://drive.google.com/file/d/153nC3izpJ-RaXSkYJ1-2qRzKOWjdzP_L/view?usp=sharing" target="_blank" rel="noreferrer">
+          Get my CV
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 3v10.2l3.6-3.6 1.4 1.4-6 6-6-6 1.4-1.4 3.6 3.6V3h2ZM4 20h16v2H4v-2Z" fill="currentColor"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section id="home" class="hero">
+      <div class="card heroGrid">
+        <div class="heroLeft">
+          <div class="badge"><span class="spark" aria-hidden="true"></span> Welcome to my portfolio</div>
+
+          <h1>Hi. I’m Asma Arrak.</h1>
+          <p class="sub">
+            CS graduate student & developer building practical systems across <b>ML/NLP</b>, <b>web/mobile</b>, and <b>human-centered AI</b>.
+            I like messy data, clever models, and turning it into something real people can use.
+          </p>
+
+          <div class="ctaRow">
+            <a class="btn primary" href="#projects">See featured projects</a>
+            <a class="btn" href="#contact">Contact me</a>
+          </div>
+
+          <div class="mini">
+            <span class="pill">UM–Flint (MS CS)</span>
+            <span class="pill">GSRA</span>
+            <span class="pill">NLP • ML • HCI</span>
+          </div>
+        </div>
+
+        <div class="heroRight card" aria-label="Cute mascot">
+          <div class="float one" aria-hidden="true"></div>
+          <div class="float two" aria-hidden="true"></div>
+
+          <svg class="mascot" viewBox="0 0 520 360" role="img" aria-label="Two cute cats illustration">
+            <defs>
+              <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#a855f7" stop-opacity=".9"/>
+                <stop offset="1" stop-color="#22d3ee" stop-opacity=".75"/>
+              </linearGradient>
+              <linearGradient id="g2" x1="1" x2="0" y1="0" y2="1">
+                <stop offset="0" stop-color="#fb7185" stop-opacity=".85"/>
+                <stop offset="1" stop-color="#fbbf24" stop-opacity=".35"/>
+              </linearGradient>
+              <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="6"/>
+              </filter>
+            </defs>
+
+            <circle cx="110" cy="70" r="18" fill="url(#g1)" filter="url(#soft)" opacity=".9"/>
+            <circle cx="420" cy="80" r="22" fill="url(#g2)" filter="url(#soft)" opacity=".7"/>
+
+            <g transform="translate(250,60)">
+              <path d="M40 68 L20 34 Q46 34 56 58 Z" fill="#c7bfb5" stroke="rgba(255,255,255,.18)"/>
+              <path d="M140 68 L160 34 Q134 34 124 58 Z" fill="#c7bfb5" stroke="rgba(255,255,255,.18)"/>
+              <rect x="32" y="60" width="136" height="120" rx="44" fill="#cfc7bd" stroke="rgba(255,255,255,.14)"/>
+              <circle cx="64" cy="132" r="10" fill="#fb7185" opacity=".35"/>
+              <circle cx="136" cy="132" r="10" fill="#fb7185" opacity=".35"/>
+              <circle cx="78" cy="120" r="6" fill="#2a2a33"/>
+              <circle cx="122" cy="120" r="6" fill="#2a2a33"/>
+              <path d="M100 130 q-10 12 -22 2" stroke="#2a2a33" stroke-width="4" fill="none" stroke-linecap="round"/>
+              <path d="M100 130 q10 12 22 2" stroke="#2a2a33" stroke-width="4" fill="none" stroke-linecap="round"/>
+              <rect x="52" y="168" width="36" height="34" rx="14" fill="#cfc7bd" opacity=".95"/>
+              <rect x="112" y="168" width="36" height="34" rx="14" fill="#cfc7bd" opacity=".95"/>
+              <path d="M210 110 c0-10 12-16 20-6 c8-10 20-4 20 6 c0 14-20 24-20 24 c0 0-20-10-20-24z"
+                    fill="#fb7185" opacity=".85"/>
+            </g>
+
+            <g transform="translate(120,170)">
+              <path d="M50 55 L30 26 Q56 26 66 46 Z" fill="#ffffff" stroke="rgba(255,255,255,.16)"/>
+              <path d="M145 55 L165 26 Q139 26 129 46 Z" fill="#ffffff" stroke="rgba(255,255,255,.16)"/>
+              <rect x="35" y="52" width="150" height="120" rx="54" fill="#ffffff" stroke="rgba(255,255,255,.16)"/>
+              <circle cx="85" cy="112" r="6" fill="#2a2a33"/>
+              <circle cx="135" cy="112" r="6" fill="#2a2a33"/>
+              <circle cx="68" cy="126" r="10" fill="#fb7185" opacity=".30"/>
+              <circle cx="152" cy="126" r="10" fill="#fb7185" opacity=".30"/>
+              <path d="M110 122 q-10 12 -22 2" stroke="#2a2a33" stroke-width="4" fill="none" stroke-linecap="round"/>
+              <path d="M110 122 q10 12 22 2" stroke="#2a2a33" stroke-width="4" fill="none" stroke-linecap="round"/>
+              <path d="M36 142 q-30 16 -18 44 q10 22 42 8"
+                    stroke="#ffffff" stroke-width="14" fill="none" stroke-linecap="round" opacity=".98"/>
+            </g>
+
+            <path d="M35 310 q35-30 70 0" stroke="url(#g1)" stroke-width="4" opacity=".45" fill="none"/>
+            <path d="M420 300 q35-30 70 0" stroke="url(#g2)" stroke-width="4" opacity=".35" fill="none"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- UPDATED ABOUT -->
+    <section id="about">
+      <div class="secHead">
+        <h2>About</h2>
+        <p>A bit more about me, my work, and what I like to build.</p>
+      </div>
+
+      <div class="aboutCard">
+        <div class="aboutGrid">
+          <div class="aboutMain">
+            <h3>Hi again, I’m Asma.</h3>
+            <p>
+              I’m a Computer Science graduate student and GSRA. My work sits between <b>human-centered AI</b> and <b>practical ML/NLP systems</b>:
+              I like understanding how people perceive and use AI (especially in online dating and education), then turning that into tools that are
+              reliable, usable, and genuinely helpful.
+            </p>
+            <p>
+              I’m happiest when a project has the full arc: <b>messy data → clear dataset → strong baseline/model → demo that people can actually try</b>.
+              If it involves debugging, iteration, and clean documentation, I’m in.
+            </p>
+
+            
+
+            <div class="aboutChips" aria-label="Themes">
+              <span class="chip a">HCI / UX Research</span>
+              <span class="chip b">NLP & LLM Evaluation</span>
+              <span class="chip b">ML Systems</span>
+              
+            </div>
+          </div>
+
+          <aside class="aboutAside">
+            <div>
+              <h4>Right now</h4>
+              <ul class="aboutList">
+                <li>MS in Computer Science (UM–Flint, 2024–2026)</li>
+                <li>Graduate Student Research Assistant (GSRA)</li>
+                <li>Research on AI perceptions in social contexts</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4>I like building</h4>
+              <ul class="aboutList">
+                <li>datasets and annotation pipelines</li>
+                <li>baseline models + clean evaluation</li>
+                <li>small apps that make the work tangible</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4>Bonus</h4>
+              <div style="color:var(--muted); line-height:1.7; font-size:13.5px;">
+                If you want to collaborate (research or engineering), I’m easy to work with.
+                I care about clarity, kind feedback, and shipping.
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="secHead">
+        <h2>Skills</h2>
+        <p>Tools I actually use.</p>
+      </div>
+
+      <div class="grid3">
+        <div class="tile">
+          <h3>Languages</h3>
+          <div class="tags">
+            <span class="tag c">Python</span>
+            <span class="tag c">Java</span>
+            <span class="tag c">Dart</span>
+            <span class="tag c">C</span>
+          </div>
+        </div>
+        <div class="tile">
+          <h3>Web / Mobile</h3>
+          <div class="tags">
+            <span class="tag p">React</span>
+            <span class="tag p">Node.js</span>
+            <span class="tag p">Express</span>
+            <span class="tag p">Flutter</span>
+            <span class="tag p">Spring Boot</span>
+            <span class="tag p">Angular</span>
+          </div>
+        </div>
+        <div class="tile">
+          <h3>Tools</h3>
+          <div class="tags">
+            <span class="tag r">Docker</span>
+            <span class="tag r">Jenkins</span>
+            <span class="tag r">Git/GitHub</span>
+            <span class="tag r">Kubernetes (concepts)</span>
+            <span class="tag r">Power BI</span>
+            <span class="tag r">Figma</span>
+            <span class="tag r">Miro</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="secHead">
+        <h2>Featured projects</h2>
+      </div>
+
+      <div class="grid3" id="projectsGrid"></div>
+    </section>
+
+    <section id="research">
+      <div class="secHead">
+        <h2>Research</h2>
+        <p>Publications and research threads I’m proud of.</p>
+      </div>
+
+      <div class="grid2">
+        <div class="project">
+          <div class="projectTop">
+            <h3>TounsiBench (EMNLP 2025)</h3>
+            <span class="tag p">Publication</span>
+          </div>
+          <p>
+            Benchmarking large language models on Tunisian Arabic understanding and generation.
+          </p>
+          <div class="tags">
+            <span class="tag c">NLP</span>
+            <span class="tag r">Evaluation</span>
+            <span class="tag p">Benchmark</span>
+          </div>
+          <div class="projLinks">
+            <a class="linkBtn" href="https://aclanthology.org/2025.emnlp-main.1756/" target="_blank" rel="noreferrer">Paper</a>
+          </div>
+        </div>
+
+        <div class="project">
+          <div class="projectTop">
+            <h3>AI in Online Dating (under review)</h3>
+            <span class="tag p">Research</span>
+          </div>
+          <p>
+            Studying Redditors’ perceptions of AI use in online dating contexts.
+          </p>
+          <div class="tags">
+            <span class="tag p">HCI</span>
+            <span class="tag c">Social NLP</span>
+            <span class="tag r">Mixed Methods</span>
+          </div>
+          <div class="projLinks">
+            <a class="linkBtn disabled" href="javascript:void(0)" aria-disabled="true" tabindex="-1">Paper</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="secHead">
+        <h2>Experience</h2>
+        <p>Research + internships that actually taught me things.</p>
+      </div>
+
+      <div class="timeline">
+        <div class="event">
+          <div class="top">
+            <div class="role">Graduate Student Research Assistant (GSRA)</div>
+            <div class="when">Jan 2025 — Present</div>
+          </div>
+          <div class="where">University of Michigan–Flint</div>
+          <ul>
+            <li>Research on perceptions of AI in dating apps and educational settings.</li>
+            <li>Work on LLM evaluation for Tunisian Arabic benchmarking.</li>
+          </ul>
+        </div>
+
+        <div class="event">
+          <div class="top">
+            <div class="role">Machine Learning Intern (Graduation Project)</div>
+            <div class="when">Feb 2024 — Jun 2024</div>
+          </div>
+          <div class="where">Satoripop — Sousse, Tunisia</div>
+          <ul>
+            <li>Developed an AI-Driven RFP Automation Solutions: Transform the traditional RFP process by utilizing artificial intelligence to automate
+the analysis of RFP documents, match requirements with potential vendors, and assist in the creation and management of proposals.
+These solutions can significantly reduce the manual effort involved in dealing with RFPs.</li>
+          </ul>
+        </div>
+
+        <div class="event">
+          <div class="top">
+            <div class="role">Software Developer Intern</div>
+            <div class="when">Jul 2023</div>
+          </div>
+          <div class="where">Run-IT — Mahdia, Tunisia</div>
+          <ul>
+            <li>Development of two websites for a textile company. The first project involved creating a static, visually appealing website
+        using HTML and CSS. For the second project, I implemented a dynamic, interactive platform using React.js, Express.js, and
+        HTML/CSS to support customer engagement and business operations.</li>
+          </ul>
+        </div>
+
+        <div class="event">
+          <div class="top">
+            <div class="role">Software Developer Intern</div>
+            <div class="when">Jul 2022</div>
+          </div>
+          <div class="where">Alpha Computers — Mahdia, Tunisia</div>
+          <ul>
+            <li>Developed a pharmacy management website tailored to efficiently track pharmacy storage and inventory. The project involved designing
+            and implementing a user-friendly interface using HTML and CSS, as well as backend functionalities in PHP to manage database operations.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="secHead">
+        <h2>Contact</h2>
+        <p>If you want to collaborate, hire me, or just ask about my projects — send a message.</p>
+      </div>
+
+      <div class="grid2">
+        <div class="tile">
+          <h3>Email</h3>
+          <p><a class="linkBtn" href="mailto:asmaarrak11@gmail.com">asmaarrak11@gmail.com</a></p>
+          <div class="tags">
+            <span class="tag p">Fast reply</span>
+            <span class="tag c">Internships</span>
+            <span class="tag r">Research</span>
+          </div>
+        </div>
+        <div class="tile">
+          <h3>Links</h3>
+          <div class="projLinks" style="margin-top:10px;">
+            <a class="linkBtn" href="https://github.com/AsmaArrak" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="linkBtn" href="https://linkedin.com/in/asma-arrak-b24a57336/" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="linkBtn" href="https://drive.google.com/file/d/153nC3izpJ-RaXSkYJ1-2qRzKOWjdzP_L/view?usp=sharing" target="_blank" rel="noreferrer">CV (PDF)</a>
+          </div>
+          <p style="margin-top:10px;color:rgba(255,255,255,.62);">
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div style="font-weight:800;color:rgba(255,255,255,.75);margin-bottom:6px;">
+        Asma Arrak
+      </div>
+      <div>Built with simple HTML/CSS/JS • Deployed on Vercel/GitHub Pages • Cute cats included (obviously).</div>
+    </div>
+  </footer>
+
+  <script>
+    const featuredProjects = [
+      {
+        title: "Pokémon Image Classification (Hugging Face Model)",
+        badge: "ML",
+        desc: "Fine-tuned Pokémon classifier published on Hugging Face for easy inference and sharing.",
+        tags: ["Hugging Face", "PyTorch", "Computer Vision"],
+        repo: "",
+        live: "https://huggingface.co/meryembarkallah21/Poke",
+        liveLabel: "Hugging Face"
+      },
+      {
+        title: "Tone Check for Professional E-mails",
+        badge: "NLP",
+        desc: "App that analyzes email tone and flags issues for professional writing.",
+        tags: ["Python", "NLP", "Text Classification"],
+        repo: "https://github.com/AsmaArrak/NLP-App-Tone-Check-for-Professional-E-mails"
+      },
+      {
+        title: "YouTube Comments Sentiment Analyzer",
+        badge: "App",
+        desc: "TF–IDF + Logistic Regression sentiment model with a Tkinter desktop GUI.",
+        tags: ["scikit-learn", "TF–IDF", "Tkinter"],
+        repo: "https://github.com/AsmaArrak/Youtube_comments_analyse"
+      },
+      {
+        title: "Catalog Management Application (Spring Boot)",
+        badge: "Backend",
+        desc: "Spring Boot catalog manager project with security/auth and product workflows.",
+        tags: ["Java", "Spring Boot", "Spring Security"],
+        repo: "https://github.com/AsmaArrak/SpringBoot"
+      },
+      {
+        title: "Book Management System (Keycloak Auth)",
+        badge: "Full-stack",
+        desc: "Spring Boot backend + React frontend + Keycloak auth and role-based access control.",
+        tags: ["Spring Boot", "React", "Keycloak", "RBAC"],
+        repo: "https://github.com/AsmaArrak/Keyclock"
+      },
+      {
+        title: "Microservices Weather Forecast App",
+        badge: "Systems",
+        desc: "Microservices project with REST + GraphQL components and deployment concepts.",
+        tags: ["Node.js", "REST", "GraphQL", "Jenkins"],
+        repo: "https://github.com/AsmaArrak/Microservices"
+      },
+      {
+        title: "DevOps Demo",
+        badge: "DevOps",
+        desc: "Containerization and CI/CD practice with Docker + Jenkins.",
+        tags: ["Docker", "Jenkins", "CI/CD"],
+        repo: "https://github.com/AsmaArrak/Devops"
+      },
+      {
+        title: "Express + SQLite API Starter",
+        badge: "Backend",
+        desc: "Simple Express backend project using SQLite for storage.",
+        tags: ["Node.js", "Express", "SQLite"],
+        repo: "https://github.com/AsmaArrak/express-sqlite"
+      },
+      {
+        title: "STARPRINT (One-page Website)",
+        badge: "Web",
+        desc: "Landing page website project for a textile company.",
+        tags: ["HTML", "CSS", "Landing Page"],
+        repo: "https://github.com/AsmaArrak/STARPRINT"
+      },
+      {
+        title: "STARPRINT (React + Express version)",
+        badge: "Full-stack",
+        desc: "Upgraded version built with React frontend + Node/Express backend.",
+        tags: ["React", "Node.js", "Express"],
+        repo: "https://github.com/AsmaArrak/REACT"
+      },
+      {
+        title: "Nuit de l’Info 2023: Climate Change (True vs False) Using AI",
+        badge: "AI",
+        desc: "Educational tool to help distinguish climate misconceptions from real solutions.",
+        tags: ["Python", "Data", "AI"],
+        repo: "https://github.com/AsmaArrak/Nuitdelinfo2023"
+      },
+      {
+        title: "Valorant Statistics Project",
+        badge: "Data",
+        desc: "Gameplay data analysis project to uncover insights and trends.",
+        tags: ["Python", "Data Analysis"],
+        repo: "https://github.com/AsmaArrak/valorant"
+      },
+      {
+        title: "UI/UX Cauchemardesque",
+        badge: "UI",
+        desc: "A deliberately chaotic interactive UI/UX web project.",
+        tags: ["React", "UI/UX", "Web"],
+        repo: "https://github.com/AsmaArrak/UI-UXCauchemardesque"
+      },
+      {
+        title: "Call-A-Taxi",
+        badge: "Backend",
+        desc: "Cab application project with database and backend structure.",
+        tags: ["Java", "SQL", "Maven"],
+        repo: "https://github.com/AsmaArrak/Call-A-taxi"
+      },
+      {
+        title: "AI-Driven RFP Automation (Internship Work)",
+        badge: "ML",
+        desc: "Automated analysis of RFP documents, requirement matching, and proposal assistance workflows.",
+        tags: ["Document AI", "Automation", "Applied ML"],
+        repo: ""
+      }
+    ];
+
+    const projectsGrid = document.getElementById("projectsGrid");
+    projectsGrid.innerHTML = featuredProjects.map(p => `
+      <article class="project">
+        <div class="projectTop">
+          <h3>${escapeHtml(p.title)}</h3>
+          <span class="tag c">${escapeHtml(p.badge)}</span>
+        </div>
+        <p>${escapeHtml(p.desc)}</p>
+        <div class="tags">
+          ${p.tags.map(t => `<span class="tag p">${escapeHtml(t)}</span>`).join("")}
+        </div>
+        <div class="projLinks">
+          ${p.repo ? `<a class="linkBtn" href="${p.repo}" target="_blank" rel="noreferrer">Repo</a>` : ""}
+          ${p.live ? `<a class="linkBtn" href="${p.live}" target="_blank" rel="noreferrer">${escapeHtml(p.liveLabel || "Live")}</a>` : ""}
+        </div>
+      </article>
+    `).join("");
+
+    function escapeHtml(s){
+      return String(s)
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+    }
+
+    const canvas = document.getElementById("stars");
+    const ctx = canvas.getContext("2d", { alpha: true });
+
+    let w, h, stars;
+    const STAR_COUNT = 140;
+    const DPR = Math.min(2, window.devicePixelRatio || 1);
+
+    function resize(){
+      w = canvas.width = Math.floor(window.innerWidth * DPR);
+      h = canvas.height = Math.floor(window.innerHeight * DPR);
+      canvas.style.width = window.innerWidth + "px";
+      canvas.style.height = window.innerHeight + "px";
+
+      stars = Array.from({ length: STAR_COUNT }, () => ({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        r: (Math.random() * 1.6 + 0.2) * DPR,
+        a: Math.random() * 0.7 + 0.2,
+        vx: (Math.random() * 0.18 + 0.05) * DPR,
+        tw: Math.random() * 0.02 + 0.008
+      }));
+    }
+
+    function tick(t){
+      ctx.clearRect(0,0,w,h);
+
+      const grad = ctx.createRadialGradient(w*0.5,h*0.4, 80*DPR, w*0.5,h*0.6, Math.max(w,h)*0.7);
+      grad.addColorStop(0, "rgba(255,255,255,0.03)");
+      grad.addColorStop(1, "rgba(0,0,0,0.18)");
+      ctx.fillStyle = grad;
+      ctx.fillRect(0,0,w,h);
+
+      for(const s of stars){
+        s.x += s.vx;
+        if(s.x > w + 10) s.x = -10;
+
+        const twinkle = 0.6 + 0.4 * Math.sin(t * s.tw + s.y * 0.02);
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r, 0, Math.PI*2);
+        ctx.fillStyle = `rgba(255,255,255,${Math.min(0.9, s.a * twinkle)})`;
+        ctx.fill();
+      }
+
+      requestAnimationFrame(tick);
+    }
+
+    window.addEventListener("resize", resize, { passive:true });
+    resize();
+    requestAnimationFrame(tick);
+
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener("click", (e) => {
+        const id = a.getAttribute("href");
+        if(!id || id.length < 2) return;
+        const el = document.querySelector(id);
+        if(!el) return;
+        e.preventDefault();
+        el.scrollIntoView({ behavior:"smooth", block:"start" });
+      });
+    });
+  </script>
+</body>
+</html>
